@@ -40,7 +40,7 @@ if __name__ == "__main__":
         train()
     model = load_model(os.path.join('models', 'sentiment_analysis_model.h5'))
     # loading
-    with open('tokenizer.pickle', 'rb') as handle:
+    with open(os.path.join('tokenizer', 'tokenizer.pickle'), 'rb') as handle:
         tokenizer = pickle.load(handle)
 
     app.run(port='8088', threaded=False)

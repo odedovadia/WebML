@@ -18,7 +18,7 @@ def train():
     token.fit_on_texts(x_train)
 
     # Saving tokenizer
-    with open('tokenizer.pickle', 'wb') as handle:
+    with open(os.path.join('tokenizer', 'tokenizer.pickle'), 'wb') as handle:
         pickle.dump(token, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     x_train_dl = tokenize_data(token, x_train, max_words=MAX_WORDS)
