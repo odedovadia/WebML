@@ -12,7 +12,7 @@
               Sentiment Analysis App
             </h1>
             <p class = 'desc'>
-              Type a sentence, click on the submit button and wait for your 				prediction.
+              Type a sentence, click on the submit button, and wait for your prediction.
             </p>
             <form method="POST" onSubmit = 'return validate();' class='form'>
                 <input name="text">
@@ -21,6 +21,56 @@
             <br>
             <br>
             <p id='demo'>{{ variable }} </p>
+
+            </div>
+            </div>
+            </head>
+            </body>
+	<head>
+  		<body>
+    	<link rel='stylesheet' href='bootstrap.min.css'></style>
+    	<link rel='stylesheet' href='font-awesome.min.css'></style>
+  		<div class="container">
+    	<div class = "centered">
+           <header class="text-center text-white">
+            	<title> Word2Vec App </title>
+            <h1 class = 'header'>
+              Word2Vec App
+            </h1>
+            <p class = 'desc'>
+              Type a word, click on the submit button, and wait for the top 5 most similar words to appear..
+            </p>
+            <form method="POST" onSubmit = 'return validate();' class='form'>
+                <input name="word2vec">
+                <input type="submit" onclick = 'this.form.submit();'>
+            </form>
+            <br>
+            <br>
+
+           <table class="center">
+                <tr>
+                    {% for col in column_names %}
+                    <th>{{col}}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in row_data %}
+                <tr>
+                    {% for col, row_ in zip(column_names, row) %}
+                    {% if col == link_column %}
+                    <td>
+                        <button type="submit" value={{ row_ }} name="person_id" form="patient_form" class="patient_button">
+                            {{ row_ }}
+                        </button>
+                    </td>
+                    {% else %}
+                    <td>{{row_}}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+
+            </table>
+
 
             </div>
             </div>
@@ -52,6 +102,30 @@
     }
     input[type=submit]:hover {
       background-color: #b0540e;
+    }
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    }
+
+    td, th {
+        border: 1px solid #000000;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #00ff80;
+        color: #000000;
+    }
+    tr:nth-child(odd) {
+        background-color: #add8e6;
+        color: #000000;
+    }
+    .center {
+      margin-left: auto;
+      margin-right: auto;
     }
     </style>
 
